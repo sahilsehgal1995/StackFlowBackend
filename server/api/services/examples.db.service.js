@@ -4,7 +4,6 @@ class ExamplesDatabase {
     this._counter = 0;
 
     this.insert('example 0');
-    this.insert('example 1');
   }
 
   all() {

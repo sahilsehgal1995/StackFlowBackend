@@ -18,6 +18,8 @@
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
     "express": "^4.17.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.5",
     "pino": "^5.13.4",
     "swagger-express-middleware": "^2.0.2"
   },
@@ -36,5 +38,5 @@
     "pino-pretty": "^3.2.1",
     "supertest": "^4.0.2"
   },
-  "author": "Carmine DiMascio <cdimascio@gmail.com> (https://github.com/cdimascio)"
+  "author": "Sahil sehgal <sahilsehgal1995@gmail.com> (https://github.com/sahilsehgal1995)"
 }

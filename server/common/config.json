@@ -1,0 +1,5 @@
+{
+	"database": {
+		"uri": "mongodb+srv://sahilsehgal1995:test@cluster0-aobc3.mongodb.net/test?retryWrites=true&w=majority"
+	}
+}

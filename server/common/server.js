@@ -5,6 +5,7 @@ import * as http from 'http';
 import * as os from 'os';
 import cookieParser from 'cookie-parser';
 
+import Database from './mongoose';
 import swaggerify from './swagger';
 
 import l from './logger';
@@ -27,8 +28,16 @@ export default class ExpressServer {
     return this;
   }
 
+  connectDatabase(){
+    const database = new Database();
+    database.createConnection();
+  }
+
   listen(port = process.env.PORT) {
-    const welcome = p => () => l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname()} on port: ${p}}`);
+    const welcome = p => () => {
+      l.info(`up and running in ${process.env.NODE_ENV || 'development'} @: ${os.hostname()} on port: ${p}}`);
+      this.connectDatabase();
+    };
     http.createServer(app).listen(port, welcome(port));
     return app;
   }
