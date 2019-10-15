@@ -17,55 +17,62 @@ produces:
 
 
 definitions:
-  ExampleBody:
+  
+  MoviesBody:
     type: object
-    title: example
-    required:
-      - name
+    title: movie
     properties:
-      name:
+      movie_id:
+        type: number
+      title:
         type: string
-        example: no_stress
+      youtube_id:
+        type: string
+      imdb_id:
+        type: number
+      posters:
+        type: string
 
 paths:
-  /examples:
+
+  /movies:
     get:
       tags:
-        - Examples
-      description: Fetch all examples
+        - Movies
+      description: Fetch all Movies
       responses:
         200:
-          description: Returns all examples
+          description: Returns all Movies
     post:
       tags:
-        - Examples
-      description: Create a new example
+        - Movies
+      description: Create a new movie
       parameters:
-        - name: example
+        - name: movie
           in: body
           description: an example
           required: true
           schema: 
-            $ref: "#/definitions/ExampleBody"
+            $ref: "#/definitions/MoviesBody"
       responses:
         200:
-          description: Returns all examples
+          description: Returns all movies
 
-  /examples/{id}:
+  /movies/{id}:
     get:
       tags:
-        - Examples
+        - Movies
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the example to retrieve
+          description: The id of the movie to retrieve
           type: integer
       responses:
         200:
-          description: Return the example with the specified id
+          description: Return the movie with the specified id
         404:
-          description: Example not found
+          description: movie not found
 
   /spec:
     get:

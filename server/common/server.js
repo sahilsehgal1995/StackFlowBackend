@@ -30,7 +30,7 @@ export default class ExpressServer {
 
   connectDatabase(){
     const database = new Database();
-    database.createConnection();
+    return database.createConnection();
   }
 
   listen(port = process.env.PORT) {
