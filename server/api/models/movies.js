@@ -16,10 +16,10 @@ export const MoviesSchema = new Schema(
 			required: true,
 			default: ''
 		},
-		genres: [{
+		genres: {
 			type: String,
-			
-		}],
+			default: ''
+		},
 		posters: {
 			type: String,
 			default: ''
@@ -31,8 +31,6 @@ export const MoviesSchema = new Schema(
 		},
 		youtube_id: {
 			type: String,
-			required: true,
-			unique: true,
 		},
 	},
 	{ collection: 'movies' }

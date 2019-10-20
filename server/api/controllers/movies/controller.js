@@ -5,7 +5,6 @@ export class Controller {
   all(req, res) {
     Movies.find()
     .then(movies => {
-      console.log("aaa", movies);
       return res.json(movies);
     })
     .catch(err => {
