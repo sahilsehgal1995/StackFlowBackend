@@ -1,0 +1,45 @@
+{
+  "name": "MovieStarBackend",
+  "version": "1.0.0",
+  "description": "Movie Recommendation system",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "compile": "babel server --out-dir dist --delete-dir-on-start --source-maps inline --copy-files",
+    "dev": "nodemon server --exec babel-node --config .nodemonrc.json | pino-pretty",
+    "dev:debug": "nodemon server --exec babel-node --config .nodemonrc.json --inspect | pino-pretty",
+    "test": "mocha --require @babel/register --exit",
+    "test:debug": "mocha --require @babel/register --inspect-brk --exit",
+    "lint": "eslint -c .eslintrc.json {server,test}/**",
+    "lint:fix": "eslint --fix -c .eslintrc.json {server,test}/**"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.5",
+    "mongoose-bcrypt": "^1.6.0",
+    "mongoose-string-query": "^0.2.7",
+    "mongoose-timestamp": "^0.6.0",
+    "pino": "^5.13.4",
+    "swagger-express-middleware": "^2.0.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.2",
+    "@babel/core": "^7.6.2",
+    "@babel/node": "^7.6.2",
+    "@babel/preset-env": "^7.6.2",
+    "babel-eslint": "^10.0.3",
+    "chai": "^4.2.0",
+    "eslint": "^6.5.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-config-airbnb-base": "^13.2.0",
+    "mocha": "^6.2.1",
+    "nodemon": "^1.19.3",
+    "pino-pretty": "^3.2.1",
+    "supertest": "^4.0.2"
+  },
+  "author": "Sahil sehgal <sahilsehgal1995@gmail.com> (https://github.com/sahilsehgal1995)"
+}

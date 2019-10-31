@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: MovieStarBackend
+  description: Movie Recommendation system
+basePath: /api/v1
+tags:
+  - name: Examples
+    description: Simple example endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  
+  MoviesBody:
+    type: object
+    title: movie
+    properties:
+      movie_id:
+        type: number
+      title:
+        type: string
+      youtube_id:
+        type: string
+      imdb_id:
+        type: number
+      posters:
+        type: string
+
+paths:
+
+  /movies:
+    get:
+      tags:
+        - Movies
+      description: Fetch all Movies
+      responses:
+        200:
+          description: Returns all Movies
+    post:
+      tags:
+        - Movies
+      description: Create a new movie
+      parameters:
+        - name: movie
+          in: body
+          description: an example
+          required: true
+          schema: 
+            $ref: "#/definitions/MoviesBody"
+      responses:
+        200:
+          description: Returns all movies
+
+  /movies/{id}:
+    get:
+      tags:
+        - Movies
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the movie to retrieve
+          type: integer
+      responses:
+        200:
+          description: Return the movie with the specified id
+        404:
+          description: movie not found
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
