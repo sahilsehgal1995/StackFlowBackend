@@ -1,12 +1,12 @@
 swagger: "2.0"
 info:
   version: 1.0.0
-  title: MovieStarBackend
-  description: Movie Recommendation system
+  title: StackFlowBackend
+  description: Stack flow data mining project
 basePath: /api/v1
 tags:
-  - name: Examples
-    description: Simple example endpoints
+  - name: Posts
+    description: Posts endpoints
   - name: Specification
     description: The swagger API specification
 
@@ -18,61 +18,83 @@ produces:
 
 definitions:
   
-  MoviesBody:
+  PostsBody:
     type: object
-    title: movie
+    title: posts
     properties:
-      movie_id:
+      id:
         type: number
+      post_type_id:
+        type: number
+      accepted_answer_id:
+        type: number
+      creation_date:
+        type: string
+      score:
+        type: number
+      view_count:
+        type: number
+      body:
+        type: string
+      owner_user_id:
+        type: number
+      last_editor_user_id:
+        type: number
+      last_edit_date:
+        type: string
+      last_activity_date:
+        type: string
       title:
         type: string
-      youtube_id:
+      tags:
         type: string
-      imdb_id:
+      answer_count:
         type: number
-      posters:
-        type: string
+      comment_count:
+        type: number
+      favorite_count:
+        type: number
 
 paths:
 
-  /movies:
+  /posts:
     get:
       tags:
-        - Movies
-      description: Fetch all Movies
+        - Posts
+      description: Fetch all Posts
       responses:
         200:
-          description: Returns all Movies
+          description: Returns all Posts
     post:
       tags:
-        - Movies
-      description: Create a new movie
+        - Posts
+      description: Create a new post
       parameters:
-        - name: movie
+        - name: post
           in: body
-          description: an example
+          description: create new post
           required: true
           schema: 
-            $ref: "#/definitions/MoviesBody"
+            $ref: "#/definitions/PostsBody"
       responses:
         200:
-          description: Returns all movies
+          description: Returns all posts
 
-  /movies/{id}:
+  /posts/{id}:
     get:
       tags:
-        - Movies
+        - Posts
       parameters:
         - name: id
           in: path
           required: true
-          description: The id of the movie to retrieve
+          description: The id of the post to retrieve
           type: integer
       responses:
         200:
-          description: Return the movie with the specified id
+          description: Return the post with the specified id
         404:
-          description: movie not found
+          description: post not found
 
   /spec:
     get:
