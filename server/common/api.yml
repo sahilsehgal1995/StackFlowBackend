@@ -9,6 +9,8 @@ tags:
     description: Posts endpoints
   - name: Specification
     description: The swagger API specification
+  - name: Tags
+    description: Tags API
 
 consumes:
   - application/json
@@ -55,6 +57,21 @@ definitions:
       favorite_count:
         type: number
 
+  TagsBody:
+    type: object
+    title: posts
+    properties:
+      id:
+        type: number
+      wiki_post_id:
+        type: string
+      count:
+        type: number
+      tag_name:
+        type: string
+      except_post_id:
+        type: string
+
 paths:
 
   /posts:
@@ -95,6 +112,15 @@ paths:
           description: Return the post with the specified id
         404:
           description: post not found
+
+  /tags:
+    get:
+      tags:
+        - Tags
+      description: Fetch all Tags
+      responses:
+        200:
+          description: Returns all tags
 
   /spec:
     get:
