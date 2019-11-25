@@ -1,0 +1,131 @@
+swagger: "2.0"
+info:
+  version: 1.0.0
+  title: StackFlowBackend
+  description: Stack flow data mining project
+basePath: /api/v1
+tags:
+  - name: Posts
+    description: Posts endpoints
+  - name: Specification
+    description: The swagger API specification
+  - name: Tags
+    description: Tags API
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  
+  PostsBody:
+    type: object
+    title: posts
+    properties:
+      id:
+        type: number
+      post_type_id:
+        type: number
+      accepted_answer_id:
+        type: number
+      creation_date:
+        type: string
+      score:
+        type: number
+      view_count:
+        type: number
+      body:
+        type: string
+      owner_user_id:
+        type: number
+      last_editor_user_id:
+        type: number
+      last_edit_date:
+        type: string
+      last_activity_date:
+        type: string
+      title:
+        type: string
+      tags:
+        type: string
+      answer_count:
+        type: number
+      comment_count:
+        type: number
+      favorite_count:
+        type: number
+
+  TagsBody:
+    type: object
+    title: posts
+    properties:
+      id:
+        type: number
+      wiki_post_id:
+        type: string
+      count:
+        type: number
+      tag_name:
+        type: string
+      except_post_id:
+        type: string
+
+paths:
+
+  /posts:
+    get:
+      tags:
+        - Posts
+      description: Fetch all Posts
+      responses:
+        200:
+          description: Returns all Posts
+    post:
+      tags:
+        - Posts
+      description: Create a new post
+      parameters:
+        - name: post
+          in: body
+          description: create new post
+          required: true
+          schema: 
+            $ref: "#/definitions/PostsBody"
+      responses:
+        200:
+          description: Returns all posts
+
+  /posts/{id}:
+    get:
+      tags:
+        - Posts
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the post to retrieve
+          type: integer
+      responses:
+        200:
+          description: Return the post with the specified id
+        404:
+          description: post not found
+
+  /tags:
+    get:
+      tags:
+        - Tags
+      description: Fetch all Tags
+      responses:
+        200:
+          description: Returns all tags
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
