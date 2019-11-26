@@ -1,0 +1,5 @@
+{
+	"database": {
+		"uri": "mongodb+srv://sahilsehgal1995:test@stackflowdb-aobc3.gcp.mongodb.net/test?retryWrites=true&w=majority"
+	}
+}
