@@ -5,7 +5,7 @@ export class Controller {
   all(req, res) {
     let limit = req.query.limit ? parseInt(req.query.limit) : 10;
     let offset = req.query.offset ? parseInt(req.query.offset) : 0;
-    Tags.find()
+    Tags.find({tag_name: {$regex: '^' + req.params.tag_name, $options: 'i'}})
     .limit(limit)
     .skip(offset)
     .then(tags => {

@@ -59,7 +59,7 @@ definitions:
 
   TagsBody:
     type: object
-    title: posts
+    title: tags
     properties:
       id:
         type: number
@@ -113,14 +113,21 @@ paths:
         404:
           description: post not found
 
-  /tags:
+  /tags/{tag_name}:
     get:
       tags:
         - Tags
-      description: Fetch all Tags
+      parameters:
+        - name: tag_name
+          in: path
+          required: true
+          description: query to search
+          type: string
       responses:
         200:
           description: Returns all tags
+        404:
+          description: tags not found
 
   /spec:
     get:
