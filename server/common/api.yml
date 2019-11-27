@@ -113,6 +113,15 @@ paths:
         404:
           description: post not found
 
+  /tags:
+    get:
+      tags:
+        - Tags
+      description: Fetch all Tags
+      responses:
+        200:
+          description: Returns all Tags
+
   /tags/{tag_name}:
     get:
       tags:
@@ -120,9 +129,9 @@ paths:
       parameters:
         - name: tag_name
           in: path
-          required: true
           description: query to search
           type: string
+          required: true
       responses:
         200:
           description: Returns all tags
