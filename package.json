@@ -14,10 +14,10 @@
     "lint:fix": "eslint --fix -c .eslintrc.json {server,test}/**"
   },
   "dependencies": {
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "cookie-parser": "^1.4.4",
     "dotenv": "^8.1.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "moment": "^2.24.0",
     "mongodb": "^3.3.2",
     "mongoose": "^5.7.5",
@@ -25,7 +25,7 @@
     "mongoose-string-query": "^0.2.7",
     "mongoose-timestamp": "^0.6.0",
     "pino": "^5.13.4",
-    "swagger-express-middleware": "^2.0.2"
+    "swagger-express-middleware": "^4.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.6.2",
