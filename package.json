@@ -37,7 +37,7 @@
     "eslint": "^6.5.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-config-airbnb-base": "^13.2.0",
-    "mocha": "^6.2.1",
+    "mocha": "^10.2.0",
     "nodemon": "^1.19.3",
     "pino-pretty": "^3.2.1",
     "supertest": "^4.0.2"
